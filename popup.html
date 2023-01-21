@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Kodchasan&display=swap');
+        </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./popup.css" />
+  </head>
+  <body>
+    <div class="center-cross-axis">
+        <img src="images/plus-icon.png" width="26px" style="float: left;">
+    <h1 class="title">Youtube Plus</h1>
+    </div>
+    <a class="subtext">Use this slider to change the speed of
+        videos being played on the current tab.</a>
+ 
+
+
+    <div class="grid-layout-container-top">
+        <div class="grid-item-top">
+            <button class="subtext shortcut-btns" id="speedShortCut0">0x</button>
+        </div>
+        <div class="grid-item-top">
+            <button class="subtext shortcut-btns" id="speedShortCut1">1x</button>
+        </div>
+        <div class="grid-item-top">
+            <button class="subtext shortcut-btns" id="speedShortCut2">2x</button>
+        </div>
+        <div class="grid-item-top">
+            <button class="subtext shortcut-btns" id="speedShortCut3">3x</button>
+        </div>
+        <div class="grid-item-top">
+            <button class="subtext shortcut-btns" id="speedShortCut4">4x</button>
+        </div>
+        <div class="grid-item-top">
+            <button class="subtext shortcut-btns" id="speedShortCut5">5x</button>
+        </div>
+    </div>
+
+    
+    <section class="center-cross-axis">
+        <div class="slidecontainer">
+            <input type="range" min="0" max="5" step=".1" class="slider" id="myRange">
+        </div>        
+    </section>
+
+    <div class="row">
+        <!--<button class="subtext" style="font-size: 10px; height: 20px;" >Speed</button>-->
+        <a class="subtext" style="font-size:10px; padding:4px;">Speed:</a>
+        <input class="input-value" type="text" id="speed_value" maxlength="4" name="speed_value">
+        <span class="subtext" style="padding-left:5px">x</span>
+    </div>
+
+    <script src="./popup.js" type="module"></script>
+  </body>
+</html>

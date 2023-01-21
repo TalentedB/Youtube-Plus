@@ -1,0 +1,93 @@
+body {
+    width: 330px;
+  }
+  
+html {
+    width: 330px; 
+}
+  ul {
+    list-style-type: none;
+    padding-inline-start: 0;
+    margin: 1rem 0;
+  }
+  
+  li {
+    padding: 0.25rem;
+  }
+  li:nth-child(odd) {
+    background: #80808030;
+  }
+  li:nth-child(even) {
+    background: #ffffff;
+  }
+  
+  h1,
+  p {
+    margin: 0;
+  }
+
+
+  .title{
+    font-family: "Kodchasan";
+  }
+
+
+  .subtext{
+    text-align: center;
+    font-family: "Kodchasan";
+    font-size: 16px;
+    color: #676767;
+  }
+
+
+  .slider{
+    width: 301px;
+  }
+
+  .input-value{
+    width: 20px;
+    height: 15px;
+    font-size: 10px;
+  }
+
+  .row {
+    display: flex;
+    justify-content: center;
+  }
+
+  .center-cross-axis {
+    display: flex;
+    align-items: center;
+  }
+
+
+
+  .grid-layout-container-bottom {
+    display: grid;
+    column-gap: 12px;
+    grid-template-columns: auto auto auto;
+  }
+
+  .grid-item-bottom {
+    font-size: 10px;
+  }
+  
+
+  .grid-layout-container-top {
+    display: grid;
+    column-gap: 12px;
+    grid-template-columns: auto auto auto auto auto auto;
+  }
+
+  .grid-item-top {
+    font-size: 10px;
+  }
+
+
+  .shortcut-btns {
+    border: none;
+    cursor: pointer;
+    background-color: inherit;
+    font-size: 12px;
+    display: inline-block;
+  }
