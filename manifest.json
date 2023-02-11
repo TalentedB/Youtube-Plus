@@ -9,12 +9,16 @@
     "128": "images/icon-128.png"
   },
     "action": {
-    "default_title": "Youtube Plus",
-    "default_popup": "popup.html"
-  },
-  "host_permissions": [
-    "https://*/*",
-    "http://*/*"
+        "default_title": "Youtube Plus",
+        "default_popup": "popup.html"
+    },
+      "content_scripts": [
+    {
+        "matches": [ "*://www.youtube.com/*" ],
+      "js": ["adskipper.js"],
+      "run_at": "document_start",
+      "world": "MAIN"
+    }
   ],
   "permissions": [
     "storage",
