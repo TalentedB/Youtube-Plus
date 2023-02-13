@@ -43,7 +43,7 @@
     
     <section class="center-cross-axis">
         <div class="slidecontainer">
-            <input type="range" min="0" max="5" step=".1" class="slider" id="myRange">
+            <input type="range" min="0" max="5" step=".1" class="slider" id="speedRange">
         </div>        
     </section>
 
@@ -53,6 +53,23 @@
         <input class="input-value" type="text" id="speed_value" maxlength="4" name="speed_value">
         <span class="subtext" style="padding-left:5px">x</span>
     </div>
+
+    <hr>
+
+    <a class="subtext">Use this slider to change the tab volume</a>
+
+    <section class="center-cross-axis">
+        <div class="slidecontainer">
+            <input type="range" min="0" max="500" step="10"  value="100"    class="slider" id="volumeRange">
+        </div>        
+    </section>
+
+    <div class="row">
+        <a class="subtext" style="font-size:10px; padding:4px;">Volume:</a>
+        <input class="input-value" type="text" id="volume_value" value="100" maxlength="3" name="volume_value">
+        <span class="subtext" style="padding-left:5px">%</span>
+    </div>
+
 
     <script src="./popup.js" type="module"></script>
   </body>

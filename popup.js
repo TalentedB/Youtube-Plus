@@ -13,24 +13,18 @@ document.body.onload = function() {
     chrome.storage.session.get('custom_speed', function(the_value) {
       if (!chrome.runtime.error) {
         document.getElementById("speed_value").value = the_value.custom_speed;
-        document.getElementById("myRange").value = the_value.custom_speed;
+        document.getElementById("speedRange").value = the_value.custom_speed;
       }
       else{
         set_storage_speed(1);
         document.getElementById("speed_value").value = 1;
-        document.getElementById("myRange").value = 1;
+        document.getElementById("speedRange").value = 1;
       }
     });
   }
 
 
-
-// const button = document.querySelector("button");
-// button.addEventListener("click", async () => {
-//     const player_speed = document.getElementById('speed_value').value;
-//     changeSpeed(player_speed);
-// })
-
+//From Google Documenation
 async function getCurrentTab() {
     let queryOptions = { active: true, lastFocusedWindow: true };
     // `tab` will either be a `tabs.Tab` instance or `undefined`.
@@ -41,7 +35,7 @@ async function getCurrentTab() {
 
 async function changeSpeed(speed){
     await set_storage_speed(speed);
-    slider.value = speed;
+    speed_slider.value = speed;
     value_input.value = speed;
     const tabs = await getCurrentTab();
     chrome.scripting.executeScript({    
@@ -61,12 +55,12 @@ function injectionSpeedScript(speed){
 
 
 
-    var slider = document.getElementById("myRange");
+    var speed_slider = document.getElementById("speedRange");
     
     // Update the current slider value (each time you drag the slider handle)
-    slider.oninput = function() {
-        document.getElementById("speed_value").value = slider.value;
-        changeSpeed(slider.value);
+    speed_slider.oninput = function() {
+        document.getElementById("speed_value").value = speed_slider.value;
+        changeSpeed(speed_slider.value);
     }
 
 
@@ -76,6 +70,26 @@ value_input.oninput = function() {
     changeSpeed(value_input.value);
 }
 
+//Volume Control
+
+var volume_slider = document.getElementById("volumeRange");
+
+volume_slider.oninput = function() {
+  document.getElementById("volume_value").value = volume_slider.value;
+  changeVolume(volume_slider.value);
+}
+
+async function changeVolume(volume){
+  // const tabs = await getCurrentTab();
+  chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
+  chrome.tabs.sendMessage(tabs[0].id, {message: 'callMyFunction',volume: volume/100});
+})
+}
+
+
+
+
+//Ad Skipper
 
 var loaded_ad_skipper = 0;
 async function load_ad_skipper(){
