@@ -75,6 +75,11 @@ value_input.oninput = function() {
 var volume_slider = document.getElementById("volumeRange");
 
 volume_slider.oninput = function() {
+  if (this.value <= 10) {
+    this.step = 1;
+  } else {
+    this.step = 10;
+  }
   document.getElementById("volume_value").value = volume_slider.value;
   changeVolume(volume_slider.value);
 }
