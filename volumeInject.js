@@ -1,4 +1,4 @@
-
+try {
     var videoElement = document.querySelector("video")
     var audioCtx = new AudioContext()
     var source = audioCtx.createMediaElementSource(videoElement)
@@ -6,16 +6,21 @@
     gainNode.gain.value = 1
     source.connect(gainNode)
     gainNode.connect(audioCtx.destination)
+}catch(e){
+}
 
 chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
-    if (request.message === 'callMyFunction') {
+  try{  if (request.message === 'callMyFunction') {
       changeVolume(request.volume);
-    }
+    }}catch(e){}
   });
   
 
 function changeVolume(volume){
-    gainNode.gain.value = parseFloat(volume);
+    try{
+      gainNode.gain.value = parseFloat(volume);
+    }catch(e){
+    }
 }
 
 // injectVolume();

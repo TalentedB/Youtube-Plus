@@ -8,8 +8,9 @@ chrome.storage.session.set({ 'custom_speed' : speed }, function() {
   });
 }
 
+
 document.body.onload = function() {
-    load_ad_skipper();
+    //load_ad_skipper();
     chrome.storage.session.get('custom_speed', function(the_value) {
       if (!chrome.runtime.error) {
         document.getElementById("speed_value").value = the_value.custom_speed;
@@ -34,6 +35,7 @@ async function getCurrentTab() {
 
 
 async function changeSpeed(speed){
+  try{
     await set_storage_speed(speed);
     speed_slider.value = speed;
     value_input.value = speed;
@@ -43,13 +45,16 @@ async function changeSpeed(speed){
       func: injectionSpeedScript,
       args: [speed]
     })
+   }catch(e){}
     }
 
 
 function injectionSpeedScript(speed){
+  try{
     document.querySelector('video').playbackRate = speed;
     //document.querySelector('video').defaultPlaybackRate = speed;
     //document.getElementsByClassName('html5-main-video')[0].playbackRate = speed;
+  }catch(e){}
 }
 
 
@@ -86,9 +91,11 @@ volume_slider.oninput = function() {
 
 async function changeVolume(volume){
   // const tabs = await getCurrentTab();
+  try{
   chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
   chrome.tabs.sendMessage(tabs[0].id, {message: 'callMyFunction',volume: volume/100});
 })
+  }catch(e){}
 }
 
 
