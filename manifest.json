@@ -14,12 +14,6 @@
     },
       "content_scripts": [
     {
-      "matches": ["*://www.youtube.com/*"],
-      "js": ["adskipper.js"],
-      "run_at": "document_start",
-      "world": "MAIN"
-    },
-    {
     "matches": ["*://*/*"],
     "js": ["volumeInject.js"],
     "run_at": "document_end"
